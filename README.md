@@ -52,7 +52,7 @@ $ sudo apt-get install python3.8
 git clone https://github.com/grag1337/multithread-Portscanner.git
 ```
 
-2. (Optional) Install Coloarama
+2. (Optional) Install Colorama
 
 ```sh
 sudo pip3 install colorama

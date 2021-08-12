@@ -12,7 +12,12 @@
   </p>
 </p>
 
-![Downloads](https://img.shields.io/github/downloads/Grag1337/Multithread-Portscanner/total) ![Contributors](https://img.shields.io/github/contributors/Grag1337/Multithread-Portscanner?color=dark-green) ![Issues](https://img.shields.io/github/issues/Grag1337/Multithread-Portscanner) ![License](https://img.shields.io/github/license/Grag1337/Multithread-Portscanner) 
+<p align="center">
+<img src="https://img.shields.io/github/downloads/Grag1337/Multithread-Portscanner/total?style=for-the-badge"></img>
+<img src="https://img.shields.io/github/contributors/Grag1337/Multithread-Portscanner?color=dark-green&style=for-the-badge"></img>
+<img src="https://img.shields.io/github/issues/grag1337/Multithread-Portscanner?style=for-the-badge"></img>
+<img src="https://img.shields.io/github/license/grag1337/Multithread-Portscanner?style=for-the-badge"></img>
+</p>
 
 ## About The Project
 

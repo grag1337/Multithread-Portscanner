@@ -1,7 +1,6 @@
 <p align="center">
    <img src="https://i.ibb.co/RccnkZ9/Screenshot-from-2021-08-13-10-45-24.png"></img>
 </p>
-<br/>
 <p align="center">
   <h3 align="center">Lightweight Multithreaded Portscanner</h3>
 

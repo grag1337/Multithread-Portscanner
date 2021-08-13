@@ -14,11 +14,12 @@ def clear():
         system('clear')
 
 def portscan(ip_addr,port):
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        result = sock.connect_ex((ip_addr, port))
-        if result == 0:
-            print(f"Port {port} open on {ip_addr}")
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    result = sock.connect_ex((ip_addr, port))
+    if result == 0:
+        print(f"Port {port} open on {ip_addr}")
         sock.close()
+    sock.close()
 
 def beginScan(ip_addr,port_start,port_end,multihost_flag):
     multihost_flag = multihost_flag
@@ -28,7 +29,7 @@ def beginScan(ip_addr,port_start,port_end,multihost_flag):
         for port in range(int(port_start), int(port_end) + 1):
             t = threading.Thread(target=portscan,args=(ip_addr,port)) 
             t.start() 
-        
+        t.join()
         print(f"[+] Scan on host {ip_addr} complete.")        
     elif multihost_flag == 1:
         for host_portion in range (1,255):
@@ -39,10 +40,11 @@ def beginScan(ip_addr,port_start,port_end,multihost_flag):
             for port in range(int(port_start), int(port_end) + 1):
                 t = threading.Thread(target=portscan,args=(ip_addr_m,port)) 
                 t.start() 
-                
+            t.join() 
             print(f"[+] Scan on host {ip_addr_m} complete.") 
 
 if __name__ == '__main__':
+    socket.setdefaulttimeout(1)
     if sys.argv.__contains__("-v"):
         verbosity = 1
     if sys.argv.__contains__("-h"):

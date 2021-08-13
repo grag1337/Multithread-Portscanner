@@ -5,7 +5,6 @@
 
 import socket, sys, threading
 from os import system, name
-global verbosity 
 verbosity = 0
 def clear():
     if name == 'nt':
@@ -22,10 +21,8 @@ def portscan(ip_addr,port):
     sock.close()
 
 def beginScan(ip_addr,port_start,port_end,multihost_flag):
-    multihost_flag = multihost_flag
     if multihost_flag == 0:
-        if verbosity == 1:
-            print(f"[+] Scanning Host: {ip_addr}")
+        print(f"[+] Scanning Host: {ip_addr}")
         for port in range(int(port_start), int(port_end) + 1):
             t = threading.Thread(target=portscan,args=(ip_addr,port)) 
             t.start() 
@@ -35,8 +32,8 @@ def beginScan(ip_addr,port_start,port_end,multihost_flag):
         for host_portion in range (1,255):
             ip_addr_m = ip_addr + "." + str(host_portion)
             
-            if verbosity == 1:
-                print(f"[+] Scanning {ip_addr_m} in range {ip_addr}.1/24")
+            
+            print(f"[+] Scanning {ip_addr_m} in range {ip_addr}.1/24")
             for port in range(int(port_start), int(port_end) + 1):
                 t = threading.Thread(target=portscan,args=(ip_addr_m,port)) 
                 t.start() 

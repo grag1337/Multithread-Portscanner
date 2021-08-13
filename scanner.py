@@ -36,8 +36,8 @@ def beginScan(ip_addr,port_start,port_end,multihost_flag):
         for port in range(int(port_start), int(port_end) + 1):
             t = threading.Thread(target=portscan,args=(ip_addr,port)) 
             t.start() 
-        if verbosity == 1:
-            print(f"{RED}[+] {RESET}Scan on host {ip_addr} complete.")        
+        
+        print(f"{RED}[+] {RESET}Scan on host {ip_addr} complete.")        
     elif multihost_flag == 1:
         for host_portion in range (1,255):
             ip_addr_m = ip_addr + "." + str(host_portion)
@@ -47,15 +47,16 @@ def beginScan(ip_addr,port_start,port_end,multihost_flag):
             for port in range(int(port_start), int(port_end) + 1):
                 t = threading.Thread(target=portscan,args=(ip_addr_m,port)) 
                 t.start() 
-            if verbosity == 1:    
-                print(f"{RED}[+] {RESET}Scan on host {ip_addr_m} complete.") 
+                
+            print(f"{RED}[+] {RESET}Scan on host {ip_addr_m} complete.") 
 
 if __name__ == '__main__':
     if sys.argv.__contains__("-v"):
         verbosity = 1
-    if sys.argv.__contains__('-h'):
+    if sys.argv.__contains__("-h"):
             clear()
             print(f"{RED}[+] {RESET}Usage:\n{GREEN}[*] {RESET} Verbosity: -v\n{GREEN}[*] {RESET} Single Host Scan: -s\n {BLUE}[-] {RESET} e.g ./scanner.py <ip> <port_start> <port_end> -s\n {BLUE}[-] {RESET} e.g ./scanner.py 10.1.1.1 1 65535 -s\n{GREEN}[*] {RESET} Scan Multiple Hosts: -m\n {BLUE}[-] {RESET} e.g ./scanner.py <ip up to host portion> <port_start> <port_end> -m\n {BLUE}[-] {RESET}e.g ./scanner.py 10.1.1 1 65535 -m\n{GREEN}[*] {RESET} Help: -h\n {BLUE}[-] {RESET}e.g ./scanner.py -h\n")
+            quit()
     if len(sys.argv) <= 6:
         if sys.argv.__contains__("-s"):
             multihost_flag = 0

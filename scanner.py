@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+#should work on linux now
 #a huge thank you and shoutout to stackoverflow my lord and savior <3
 #feel free to clone this and use it during your CTF adventures.
 

@@ -23,22 +23,31 @@ def portscan(ip_addr,port):
     if result == 0:
         print(f"Port {port} open on {ip_addr}")
         sock.close()
+    else:
+        if verbosity == 1:
+            print(f"{RED}[+] {RESET}Port {port} closed on {ip_addr}")
     sock.close()
 
 def beginScan(ip_addr,port_start,port_end,multihost_flag):
     if multihost_flag == 0:
+        if verbosity == 1:
+            print(f"{RED}[+] {RESET}Singlehost Mode Selected")
         print(f"{RED}[+] {RESET}Scanning Host: {ip_addr}")
+        if verbosity == 1:
+            print(f"{RED}[+] {RESET}Beginning Scan.")
         for port in range(int(port_start), int(port_end) + 1):
             t = threading.Thread(target=portscan,args=(ip_addr,port)) 
             t.start() 
         t.join()
         print(f"{RED}[+] {RESET}Scan on host {ip_addr} complete.")        
     elif multihost_flag == 1:
+        if verbosity == 1:
+            print(f"{RED}[+] {RESET}Multihost Mode Selected")
         for host_portion in range (1,255):
             ip_addr_m = ip_addr + "." + str(host_portion)
-            
-            
             print(f"{RED}[+] {RESET}Scanning {ip_addr_m} in range {ip_addr}.1/24")
+            if verbosity == 1:
+                print(f"{RED}[+] {RESET}Beginning Scan.")
             for port in range(int(port_start), int(port_end) + 1):
                 t = threading.Thread(target=portscan,args=(ip_addr_m,port)) 
                 t.start() 

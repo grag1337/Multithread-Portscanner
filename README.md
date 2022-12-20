@@ -25,6 +25,8 @@
 
 There comes a time in any persons' life when they decide that nmap is beyond them and that they must create their own port-scanning tool. Today I have unfortunately reached this conclusion too. After a series of events I have been pushed towards creating this tool, not made for you, made for me. Featureless and bland, this port-scanner does everything every other port scanner can do, and less!
 
+It's only good quality is that it's almost lightweight! Throw this onto your favorite compromised server and enumerate the shit out of all internal services!
+
 You're free to add suggestions and modify this as you wish though.
 
 ## Built With

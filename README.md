@@ -86,7 +86,7 @@ OSError: [Errno 24] Too many open files
 You may have to increase your open file limit, this can be done by entering
 `ulimit -Sn <DESIRED NUMBER>`
 
-As far as i'm aware that number directly correlates to how many ports you're scanning. So if you choose 1 5000 you'll need the limit to be 5000.
+To fix this issue on my machine, I set my ulimit to 10000 and it no longer throws the error when scanning up to 65535.
 
 ## Roadmap
 
